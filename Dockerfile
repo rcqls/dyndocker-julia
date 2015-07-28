@@ -10,15 +10,13 @@ RUN mkdir -p /tmp/julia
 
 WORKDIR /tmp/julia
 
-RUN wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.3/julia-0.3.10-linux-x86_64.tar.gz
+RUN wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.3/julia-0.3.11-linux-x86_64.tar.gz
 
-RUN tar xzvf julia-0.3.10-linux-x86_64.tar.gz
-
-RUN mv "$(ls julia-*)" julia-0.3.10
-
-RUN mv julia-0.3.10 /
-
-RUN rm -fr /tmp/julia
+RUN tar xzvf julia-0.3.11-linux-x86_64.tar.gz \
+    && rm julia-0.3.11-linux-x86_64.tar.gz \
+    && mv "$(ls -d julia-*)" julia-0.3.11 \
+    && mv julia-0.3.11 / \
+    && rm -fr /tmp/julia
 
 
 
