@@ -13,8 +13,17 @@ RUN wget https://julialang.s3.amazonaws.com/bin/linux/x64/0.3/julia-0.3.11-linux
 RUN tar xzvf julia-0.3.11-linux-x86_64.tar.gz \
     && rm julia-0.3.11-linux-x86_64.tar.gz \
     && mv "$(ls -d julia-*)" julia-0.3.11 \
-    && mv julia-0.3.11 / \
-    && rm -fr /tmp/julia
+    && mv julia-0.3.11 /
+
+RUN git clone https://github.com/rcqls/jl4rb.git 
+
+WORKDIR /tmp/julia/j4rb
+
+RUN rake docker
+
+RUN rm -fr /tmp/julia
+
+ENV JULIA_DIR /julia-0.3.11
 
 ## the dyndoc projects folder
 
