@@ -17,9 +17,9 @@ RUN tar xzvf julia-0.3.11-linux-x86_64.tar.gz \
 
 RUN git clone https://github.com/rcqls/jl4rb.git 
 
-WORKDIR /tmp/julia/j4rb
+WORKDIR /tmp/julia/jl4rb
 
-RUN /usr/local/bundle/bin/rake docker
+RUN rake docker
 
 RUN rm -fr /tmp/julia
 
