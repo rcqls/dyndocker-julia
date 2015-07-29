@@ -16,12 +16,6 @@ RUN tar xzvf julia-0.3.11-linux-x86_64.tar.gz \
     && mv julia-0.3.11 / \
     && rm -fr /tmp/julia
 
-
-
-# cleanup package manager
-
-RUN apt-get autoclean && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 ## the dyndoc projects folder
 
 RUN mkdir -p /dyndoc-proj
