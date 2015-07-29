@@ -19,7 +19,7 @@ RUN git clone https://github.com/rcqls/jl4rb.git
 
 WORKDIR /tmp/julia/j4rb
 
-RUN rake docker
+RUN /usr/local/bundle/bin/rake docker
 
 RUN rm -fr /tmp/julia
 
