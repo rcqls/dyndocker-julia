@@ -1,8 +1,6 @@
-FROM rcqls/dyndocker-main:latest
+FROM rcqls/dyndocker:latest
 
 MAINTAINER "Cqls Team"
-
-RUN apt-get update
 
 
 
@@ -32,6 +30,7 @@ VOLUME /dyndoc-proj
 
 WORKDIR /dyndoc-proj
 
+
 ## Port exposed by dyn-srv
 
 EXPOSE 7777
@@ -39,6 +38,7 @@ EXPOSE 7777
 ## the server to expose
 
 CMD ["/usr/local/bin/dyn-srv"]
+
 
 ## END
 
