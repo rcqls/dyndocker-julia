@@ -23,7 +23,9 @@ WORKDIR /tmp/julia/jl4rb
 
 RUN rake docker
 
-ENV PATH $PATH:/julia-0.3.11/bin:
+ENV PATH $PATH:/julia-0.3.11/bin
+
+ENV JULIA_PKGDIR /dyndoc-library/julia
 
 RUN rm -fr /tmp/julia
 
