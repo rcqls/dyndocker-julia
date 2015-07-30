@@ -15,15 +15,17 @@ RUN tar xzvf julia-0.3.11-linux-x86_64.tar.gz \
     && mv "$(ls -d julia-*)" julia-0.3.11 \
     && mv julia-0.3.11 /
 
+ENV JULIA_DIR /julia-0.3.11
+
 RUN git clone https://github.com/rcqls/jl4rb.git 
 
 WORKDIR /tmp/julia/jl4rb
 
 RUN rake docker
 
-RUN rm -fr /tmp/julia
+ENV PATH $PATH:/julia-0.3.11/bin:
 
-ENV JULIA_DIR /julia-0.3.11
+RUN rm -fr /tmp/julia
 
 ## the dyndoc projects folder
 
